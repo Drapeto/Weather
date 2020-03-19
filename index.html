@@ -7,27 +7,20 @@
 </head>
 
 <body>
-
-  <header>
-    <div class="container">
-
-      <img src="logo.png" alt="logo" class="logo"></div>
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="current" id="nav-current-tab" data-toggle="tab" href="#nav-current" role="tab"
-          aria-controls="nav-home" aria-selected="true">Today's Weather</a>
-        <a class="future" id="nav-forecast-tab" data-toggle="tab" href="#nav-forecast" role="tab"
-          aria-controls="nav-profile" aria-selected="false">Forecast</a>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="current" id="nav-current-tab" data-toggle="tab" href="#nav-current" role="tab" aria-controls="nav-home"
+        aria-selected="true">Today's Weather</a>
+      <a class="future" id="nav-forecast-tab" data-toggle="tab" href="#nav-forecast" role="tab"
+        aria-controls="nav-profile" aria-selected="false">Forecast</a>
     </div>
-  </header>
-
-  <body>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+  </div>
+  <div class="container">
     <!-- Retrieved data will be dumped here -->
     <div class="row row-cols-1 row-cols-md-3">
       <div class="col mb-4">
@@ -40,6 +33,7 @@
               </div>
             </div>
           </div>
+
           <div class="col mb-4">
             <div class="card">
               <img src="..." class="card-img-top" alt="...">
@@ -96,18 +90,28 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
+              </div>
+            </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript">
 
-  var APIKey = "063b0aac530c7df495f88f69c1018dfa";
+              var APIKey = "063b0aac530c7df495f88f69c1018dfa";
 
-  var current = "https://api.openweathermap.org/data/2.5/weather?" + "q={city name},{state}&appid=" + APIKey;
+              var current = "https://api.openweathermap.org/data/2.5/weather?" + "q={city name},{state}&appid=" + APIKey;
 
-  </script>               
-  </body>
+              $.ajax({
+                url: current,
+                method: "GET"
+              })
+
+                .then(function (response) {
+                  console.log(current);
+                  console.log(response);
+
+            </script>
+</body>
 
 </html>
