@@ -7,12 +7,77 @@
 </head>
 
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
 
-    var APIKey = "063b0aac530c7df495f88f69c1018dfa";
+  <body>
+    <!-- Retrieved data will be dumped here -->
+    <div class="container">
+      <div class="date"></div>
+      <div class="city"></div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+      <div class="temp"></div>
+      <div class="current"></div>
+      <div class="uv"></div>
+      <div class="future"></div>
+      <div class="5"></div>
+      <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-      "q=Tucson,Arizona&appid=" + APIKey;
+    </div>
+    </div>
 
-   
+    <!-- Add extra div for the bonus Fahrenheit temp -->
+    <div class="tempF"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      var APIKey = "063b0aac530c7df495f88f69c1018dfa";
+
+      var current = "https://api.openweathermap.org/data/2.5/weather?" +
+        "q={city name},{state}&appid=" + APIKey;
+
+    </script>
+  </body>
+
+</html>
