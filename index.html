@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>JavaScript Object Review</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Weather</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    var APIKey = "063b0aac530c7df495f88f69c1018dfa";
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+      "q=Tucson,Arizona&appid=" + APIKey;
+
+   
