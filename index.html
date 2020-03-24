@@ -7,41 +7,61 @@
 </head>
 
 <body>
-  <div class="current"></div>
-  <div class="date"></div>
+  <!-- Retrieved data will be dumped here -->
   <div class="city"></div>
   <div class="wind"></div>
   <div class="humidity"></div>
   <div class="temp"></div>
-  <div class="uv"></div>
+  <div class="tempF"></div>
   <div class="forecast"></div>
-
-
+  <div class="currentUv"></div>
+  <div class="date"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-
+    // This is our API key
     var APIKey = "063b0aac530c7df495f88f69c1018dfa";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + 
-      "q={city name},{state}&appid=" + APIKey;
-
+    // Here we are building the URL we need to query the database
+    var current = "http://api.openweathermap.org/data/2.5/weather?" + "q=Tucson,Arizona&appid=" + APIKey;
+    var forecast ="http://api.openweathermap.org/data/2.5/forecast?" + "q=Tucson,Arizona&appid=" + APIKey;
+    var currentUv = "http://api.openweathermap.org/data/2.5/uvi?" + "appid={appid}&lat={lat}&lon={lon}" + APIKey;
+    var forecastUv = "http://api.openweathermap.org/data/2.5/uvi/forecast?" + "appid={appid}&lat={lat}&lon={lon}&cnt={cnt}" + APIKey;
+    
+    
+      // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
-      url: queryURL,
+      url: forecast,
       method: "GET"
     })
+      // We store all of the retrieved data inside of an object called "response"
+      .then(function(response) {
 
-      .then(function (response) {
-        console.log(queryURL);
+        // Log the queryURL
+        console.log(forecast);
+
+        // Log the resulting object
         console.log(response);
-        
-        $(".date").text("Today: " + response.dt_txt);
-        $(".city").html("<h1>" + response.name + " Today's Weather</h1>");
-        $(".wind").text("Wind Speed: " + response.wind.speed);
-        $(".temp").text("Temperature (K) " + response.main.temp);
-        // $(".uv").text("UV: " + response.main.humidity);
-        // $(".forcast").text("forecast: " + response.);
-        // $(".conditions").text("Conditons: " + response.id)
-        // $(".icon").text("" + response.icon);; 
 
+        // Transfer content to HTML
+        $(".city").html("<h1>" + response.city.name + " Weather</h1>");
+        // $(".wind").text("Wind Speed: " + response.wind.speed);
+        // $(".humidity").text("Humidity: " + response.main.humidity);
+        // $(".currentUv").text("Current UV:" + response.value);
+        // $(".date").text("Date:" + response.dt_txt);
+        $(".forecast").text("Five Day Forecast:" + response.list);
+        
+        var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+
+        // add temp content to html
+        // $(".temp").text("Temperature (K) " + response.main.temp);
+        // $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
+
+        // Log the data in the console as well
+        // console.log("Wind Speed: " + response.wind.speed);
+        // console.log("Humidity: " + response.main.humidity);
+        // console.log("Temperature (F): " + tempF);
+        // console.log("Date: " + response.dt_txt);
+        console.log("Five Day Forecast: " + response.list);
+        
       });
 
   </script>
